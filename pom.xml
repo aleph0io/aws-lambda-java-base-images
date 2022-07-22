@@ -60,12 +60,12 @@ under the License.
 
     <properties>
         <java.version>17</java.version>
+        <java.revision>${project.version}</java.revision>
         <aws-lambda-java-core.version>1.2.1</aws-lambda-java-core.version>
         <aws-lambda-java-serialization.version>1.0.0</aws-lambda-java-serialization.version>
         <aws-lambda-java-runtime-interface-client.version>1.0.0</aws-lambda-java-runtime-interface-client.version>
         <org-crac.version>0.1.3</org-crac.version>
-        <aws.account>538790962574</aws.account>
-        <aws.region>us-east-1</aws.region>
+        <aws.registry>m6n4d7c2</aws.registry>
         <os.platform>al2</os.platform>
     </properties>
 
@@ -105,8 +105,10 @@ under the License.
                     <images>
                         <image>
                             <build>
+                                <dockerFileDir>${project.basedir}</dockerFileDir>
                                 <args>
                                     <JAVA_VERSION>${java.version}</JAVA_VERSION>
+                                    <JAVA_REVISION>${java.revision}</JAVA_REVISION>
                                     <AWS_LAMBDA_JAVA_CORE_VERSION>${aws-lambda-java-core.version}</AWS_LAMBDA_JAVA_CORE_VERSION>
                                     <AWS_LAMBDA_JAVA_SERIALIZATION_VERSION>${aws-lambda-java-serialization.version}</AWS_LAMBDA_JAVA_SERIALIZATION_VERSION>
                                     <AWS_LAMBDA_JAVA_RUNTIME_INTERFACE_CLIENT_VERSION>${aws-lambda-java-runtime-interface-client.version}</AWS_LAMBDA_JAVA_RUNTIME_INTERFACE_CLIENT_VERSION>
@@ -115,13 +117,16 @@ under the License.
                                 <tags>
                                     <tag>${java.version}</tag>
                                     <tag>${java.version}-${os.platform}</tag>
+                                    <tag>${java.revision}</tag>
+                                    <tag>${java.revision}-${os.platform}</tag>
                                 </tags>
                                 <labels>
                                     <java.version>${java.version}</java.version>
+                                    <java.revision>${java.revision}</java.revision>
                                     <os.platform>${os.platform}</os.platform>
                                 </labels>
                             </build>
-                            <name>${aws.account}.dkr.ecr.${aws.region}.amazonaws.com/sigpwned/aws-lambda-java-base-image:${project.version}-${os.platform}</name>
+                            <name>public.ecr.aws/${aws.registry}/sigpwned/aws-lambda-java-base-image</name>
                         </image>
                     </images>
                 </configuration>

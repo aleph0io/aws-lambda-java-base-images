@@ -35,6 +35,6 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
       - name: Deploy artifacts
-        run: mvn -B -Daws.account=$AWS_ACCOUNT_ID -Ddocker.skip=false clean docker:build docker:tag docker:push
+        run: mvn -B -Daws.registry=$AWS_REGISTRY -Ddocker.skip=false clean docker:build docker:tag docker:push
         env:
-          AWS_ACCOUNT_ID: ${{ secrets.CD_AWS_ACCOUNT_ID }}
+          AWS_REGISTRY: ${{ secrets.CD_AWS_REGISTRY }}

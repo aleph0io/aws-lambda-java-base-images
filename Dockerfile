@@ -19,7 +19,7 @@
 
 ARG JAVA_VERSION=17.0.3
 
-FROM public.ecr.aws/amazoncorretto/amazoncorretto:$JAVA_VERSION-al2
+FROM public.ecr.aws/amazoncorretto/amazoncorretto:${JAVA_VERSION}-al2
 
 ARG AWS_LAMBDA_JAVA_CORE_VERSION=1.2.1
 ARG AWS_LAMBDA_JAVA_SERIALIZATION_VERSION=1.0.0
