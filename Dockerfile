@@ -41,4 +41,4 @@ ENV LD_LIBRARY_PATH=/lib:/usr/lib:/var/runtime:/var/runtime/lib:/var/task:/var/t
 ENV LAMBDA_TASK_ROOT=/var/task
 ENV LAMBDA_RUNTIME_DIR=/var/runtime
 
-ENTRYPOINT [ "/usr/bin/java", "--class-path", "/var/runtime/lib/*:/var/task/lib/*:/var/task/", "com.amazonaws.services.lambda.runtime.api.client.AWSLambda" ]
+ENTRYPOINT [ "/usr/bin/java", "--class-path", "/var/runtime/lib/*:/var/task/lib/*:/var/task/", "--add-opens", "java.base/java.util=ALL-UNNAMED", "com.amazonaws.services.lambda.runtime.api.client.AWSLambda" ]
