@@ -27,8 +27,6 @@ ARG AWS_LAMBDA_JAVA_SERIALIZATION_VERSION=1.0.0
 ARG AWS_LAMBDA_JAVA_RUNTIME_INTERFACE_CLIENT_VERSION=1.0.0
 ARG ORG_CRAC_VERSION=0.1.3
 
-RUN yum upgrade -y
-
 ADD https://search.maven.org/remotecontent?filepath=com/amazonaws/aws-lambda-java-core/${AWS_LAMBDA_JAVA_CORE_VERSION}/aws-lambda-java-core-${AWS_LAMBDA_JAVA_CORE_VERSION}.jar /var/runtime/lib/aws-lambda-java-core-${AWS_LAMBDA_JAVA_CORE_VERSION}.jar
 ADD https://search.maven.org/remotecontent?filepath=com/amazonaws/aws-lambda-java-serialization/${AWS_LAMBDA_JAVA_SERIALIZATION_VERSION}/aws-lambda-java-serialization-${AWS_LAMBDA_JAVA_SERIALIZATION_VERSION}.jar /var/runtime/lib/aws-lambda-java-serialization-${AWS_LAMBDA_JAVA_SERIALIZATION_VERSION}.jar
 ADD https://search.maven.org/remotecontent?filepath=io/github/crac/com/amazonaws/aws-lambda-java-runtime-interface-client/${AWS_LAMBDA_JAVA_RUNTIME_INTERFACE_CLIENT_VERSION}/aws-lambda-java-runtime-interface-client-${AWS_LAMBDA_JAVA_RUNTIME_INTERFACE_CLIENT_VERSION}.jar /var/runtime/lib/aws-lambda-java-runtime-interface-client-${AWS_LAMBDA_JAVA_RUNTIME_INTERFACE_CLIENT_VERSION}.jar
