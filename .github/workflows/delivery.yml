@@ -32,8 +32,10 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::${{ secrets.CD_AWS_ACCOUNT_ID }}:role/GitHubRole
           aws-region: us-east-1
-      - name: Login to Amazon ECR
+      - name: Login to Amazon ECR Public
         uses: aws-actions/amazon-ecr-login@v1
+        with:
+          registry-type: "public"
       - name: Deploy artifacts
         run: mvn -B -Daws.registry=$AWS_REGISTRY -Ddocker.skip=false clean docker:build docker:tag docker:push
         env:
