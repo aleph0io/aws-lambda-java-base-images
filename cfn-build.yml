@@ -1,0 +1,46 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+#   http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  LambdaJavaBaseImageRepository:
+    Type: AWS::ECR::PublicRepository
+    Properties:
+      RepositoryName: sigpwned/aws-lambda-java-base-image
+      RepositoryCatalogData:
+        AboutText: "AWS	Lambda Base Images for Java 17+"
+        UsageText: "AWS Lambda Base Images for Java 17+"
+        RepositoryDescription: "AWS Lambda Base Images for Java 17+"
+        OperatingSystems:
+          - al2
+        Architectures:
+          - x86_64
+      Tags:
+        - Key: aleph0
+          Value: true
+        - Key: aleph0:scope
+          Value: public
+        - Key: aleph0:role
+          Value: lambda
+
+Outputs:
+  JavaBaseImageRepositoryImageArn:
+    Description: The ARN of the Java base image repository
+    Value: !GetAtt LambdaJavaBaseImageRepository.Arn
+    Export:
+      Name: "lambda-java-base-image-arn"
