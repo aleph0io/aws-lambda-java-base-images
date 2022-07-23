@@ -10,9 +10,18 @@ This project uses the following process to create new Lambda base images:
 2. Also teach maven to collect these dependencies and build the appropriate docker images using the Dockerfile using the excellent [fabric8io/docker-maven-plugin](https://github.com/fabric8io/docker-maven-plugin).
 3. Use GitHub Actions to do perform CI/CD and release new images to the ECR Public Gallery.
 
+## Example Lambda Function
+
+You can find an example Lambda function using these base images at [sigpwned/example-java-17-lambda-function](https://github.com/sigpwned/example-java-17-lambda-function). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image.
+
+    FROM public.ecr.aws/m6n4d7c2/sigpwned/aws-lambda-java-base-image:17.0.3-al2
+    
+    COPY target/hello-lambda.jar "${LAMBDA_TASK_ROOT}/lib/"
+    
+    CMD [ "com.sigpwned.lambda.hello.HelloLambda::handleRequest" ]
+
 ## Known Issues and Future Plans
 
-* I have built a (very) simple Lambda function using this base image. I will release it as an example soon.
 * This image is in no way optimized for cold start time, size, etc.
 * For now, only Java 17 is supported. I hope to provide base images for additional versions soon.
 * For now, only x86_64 is supported. I hope to publish multiarch builds including arm64 soon.
