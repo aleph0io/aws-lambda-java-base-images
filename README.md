@@ -22,7 +22,7 @@ You can find an example Lambda function using these base images at [sigpwned/exa
 
 ## Known Issues and Future Plans
 
-* This image is in no way optimized for cold start time, size, etc.
+* This image is in no way optimized for cold start time, size, etc. PRs welcome!
 * For now, only Java 17 is supported. I hope to provide base images for additional versions soon.
 * For now, only x86_64 is supported. I hope to publish multiarch builds including arm64 soon.
 * I suspect I will also clean up the ECR public gallery presence, but this gets the images out for now.
