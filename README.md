@@ -1,6 +1,6 @@
 # AWS Lambda Java Base Images
 
-This project provides AWS Lambda function base images for Java 17. The base images are publicly available available [in the ECR Public Gallery](https://gallery.ecr.aws/m6n4d7c2/sigpwned/aws-lambda-java-base-image). You should be able to use them directly in your builds.
+This project provides AWS Lambda function base images for Java 17. The base images are publicly available available [in the ECR Public Gallery](https://gallery.ecr.aws/m6n4d7c2/sigpwned/aws-lambda-java-base-image). You should be able to use them directly in your builds. I expect to use these base images for production lambda functions reasonably soon, but in the meantime please consider them to be *very experimental*.
 
 ## Approach
 
