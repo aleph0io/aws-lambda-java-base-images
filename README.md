@@ -13,6 +13,7 @@ This project uses the following process to create new Lambda base images:
 ## Known Issues and Future Plans
 
 * I have built a (very) simple Lambda function using this base image. I will release it as an example soon.
+* This image is in no way optimized for cold start time, size, etc.
 * For now, only Java 17 is supported. I hope to provide base images for additional versions soon.
 * For now, only x86_64 is supported. I hope to publish multiarch builds including arm64 soon.
 * I suspect I will also clean up the ECR public gallery presence, but this gets the images out for now.
