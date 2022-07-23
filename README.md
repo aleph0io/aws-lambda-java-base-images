@@ -16,7 +16,7 @@ This project uses the following process to create new Lambda base images:
 * For now, only Java 17 is supported. I hope to provide base images for additional versions soon.
 * For now, only x86_64 is supported. I hope to publish multiarch builds including arm64 soon.
 * I suspect I will also clean up the ECR public gallery presence, but this gets the images out for now.
-* Of course, as soon as there *is* an offically-supported AWS Lambda base image for Java 17, everyone should use that instead! But this project will (hopefully) support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image by that time.
+* Of course, as soon as there *is* an offically-supported AWS Lambda base image for Java 17, everyone should use that instead! But this project should hopefully fill the gap in the meantime, and will (hopefully) support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image by that time.
 
 ## Acknowledgements
 
