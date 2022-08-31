@@ -1,6 +1,6 @@
 # AWS Lambda Java Base Images
 
-This project provides the missing [AWS Lambda base image](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-images.html) for Java 17. The base images are publicly available [in the ECR Public Gallery](https://gallery.ecr.aws/aleph0io/lambda/java). You should be able to use them directly in your builds. I expect to use these base images for production lambda functions reasonably soon, but in the meantime please consider them to be *very experimental*.
+This project provides the missing [AWS Lambda base image](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-images.html) for Java 17 and 18. The base images are publicly available [in the ECR Public Gallery](https://gallery.ecr.aws/aleph0io/lambda/java). You should be able to use them directly in your builds. I expect to use these base images for production lambda functions reasonably soon, but in the meantime please consider them to be *very experimental*.
 
 ## Approach
 
@@ -12,9 +12,9 @@ This project uses the following process to create new Lambda base images:
 
 ## Example Lambda Function
 
-You can find an example Lambda function using these base images at [sigpwned/example-java-17-lambda-function](https://github.com/sigpwned/example-java-17-lambda-function). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image.
+You can find an example Lambda function using these base images at [aleph0io/aws-lambda-java-base-images](https://github.com/aleph0io/aws-lambda-java-base-images). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image.
 
-    FROM public.ecr.aws/aleph0io/java/lambda:17.0.3-al2
+    FROM public.ecr.aws/aleph0io/java/lambda:17.0.4-al2
     
     COPY target/hello-lambda.jar "${LAMBDA_TASK_ROOT}/lib/"
     
@@ -23,10 +23,10 @@ You can find an example Lambda function using these base images at [sigpwned/exa
 ## Known Issues and Future Plans
 
 * This image is in no way optimized for cold start time, size, etc. PRs welcome!
-* For now, only Java 17 is supported. I hope to provide base images for additional versions soon.
+* Both Java 17 and 18 are supported. I will release a version for Java 19 when an official [Amazon Corretto](https://gallery.ecr.aws/amazoncorretto/amazoncorretto) image is released.
 * For now, only x86_64 is supported. I hope to publish multiarch builds including arm64 soon.
 * I suspect I will also clean up the ECR public gallery presence, but this gets the images out for now.
-* Of course, as soon as there *is* an offically-supported AWS Lambda base image for Java 17, everyone should use that instead! But this project should hopefully fill the gap in the meantime, and will (hopefully) support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image by that time.
+* Of course, as soon as there *is* an offically-supported AWS Lambda base image for these Java versions, everyone should use that instead! But this project should hopefully fill the gap in the meantime, and will (hopefully) support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image by that time.
 
 ## Acknowledgements
 
