@@ -1,4 +1,4 @@
-name: delivery
+name: integration
 
 on:
   push:
