@@ -1,6 +1,6 @@
 # AWS Lambda Java Base Images
 
-This project provides the missing [AWS Lambda base image](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-images.html) for Java 17. The base images are publicly available [in the ECR Public Gallery](https://gallery.ecr.aws/m6n4d7c2/sigpwned/aws-lambda-java-base-image). You should be able to use them directly in your builds. I expect to use these base images for production lambda functions reasonably soon, but in the meantime please consider them to be *very experimental*.
+This project provides the missing [AWS Lambda base image](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-images.html) for Java 17. The base images are publicly available [in the ECR Public Gallery](https://gallery.ecr.aws/aleph0io/lambda/java). You should be able to use them directly in your builds. I expect to use these base images for production lambda functions reasonably soon, but in the meantime please consider them to be *very experimental*.
 
 ## Approach
 
@@ -14,7 +14,7 @@ This project uses the following process to create new Lambda base images:
 
 You can find an example Lambda function using these base images at [sigpwned/example-java-17-lambda-function](https://github.com/sigpwned/example-java-17-lambda-function). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image.
 
-    FROM public.ecr.aws/m6n4d7c2/sigpwned/aws-lambda-java-base-image:17.0.3-al2
+    FROM public.ecr.aws/aleph0io/java/lambda:17.0.3-al2
     
     COPY target/hello-lambda.jar "${LAMBDA_TASK_ROOT}/lib/"
     

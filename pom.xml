@@ -61,7 +61,7 @@ under the License.
     <properties>
         <java.version>17</java.version>
         <java.revision>${project.version}</java.revision>
-        <aws.registry>m6n4d7c2</aws.registry>
+        <aws.registry>aleph0io</aws.registry>
         <os.platform>al2</os.platform>
     </properties>
 
@@ -71,11 +71,18 @@ under the License.
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.3.0</version>
-                <configuration>
-                    <outputDirectory>
-                        ${project.build.directory}/dependencies
-                    </outputDirectory>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/dependencies</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>io.fabric8</groupId>
@@ -118,7 +125,7 @@ under the License.
                                     <os.platform>${os.platform}</os.platform>
                                 </labels>
                             </build>
-                            <name>public.ecr.aws/${aws.registry}/sigpwned/aws-lambda-java-base-image</name>
+                            <name>public.ecr.aws/${aws.registry}/lambda/java</name>
                         </image>
                     </images>
                 </configuration>

@@ -37,6 +37,4 @@ jobs:
         with:
           registry-type: "public"
       - name: Deploy artifacts
-        run: mvn -B -Daws.registry=$AWS_REGISTRY clean dependency:copy-dependencies docker:build docker:tag docker:push
-        env:
-          AWS_REGISTRY: ${{ secrets.CD_AWS_REGISTRY }}
+        run: mvn -B clean dependency:copy-dependencies docker:build docker:tag docker:push
