@@ -21,15 +21,128 @@ Resources:
   LambdaJavaBaseImageRepository:
     Type: AWS::ECR::PublicRepository
     Properties:
-      RepositoryName: sigpwned/aws-lambda-java-base-image
+      RepositoryName: lambda/java
       RepositoryCatalogData:
-        AboutText: "AWS	Lambda Base Images for Java 17+"
-        UsageText: "AWS Lambda Base Images for Java 17+"
-        RepositoryDescription: "AWS Lambda Base Images for Java 17+"
+        AboutText: |+
+          Unofficial base image for Lambda that contains all the required components to run your
+          functions packaged as container images on AWS Lambda. This base image contains the Amazon
+          Linux Base operating system, the runtime for Java, dependencies and the Lambda Runtime
+          Interface Client (RIC), which implements the
+          [Lambda Runtime API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html).
+          The Lambda Runtime Interface Client allows your runtime to receive requests from and send
+          requests to the Lambda service.
+
+          To learn more about the composition of this base image you can visit
+          [https://github.com/aleph0io/aws-lambda-java-base-images](https://github.com/aleph0io/aws-lambda-java-base-images).
+
+          ## Maintenance policy
+
+          These images will be updated periodically to pick up new security patches. The components
+          and dependencies included in the image may change from time to time, but they will always
+          work for deploying images to AWS Lambda.
+        UsageText: |-
+          You can find an entire example AWS Lambda function implementation at 
+          [https://github.com/sigpwned/example-java-17-lambda-function](https://github.com/sigpwned/example-java-17-lambda-function).
+          
+          Otherwise, you can get started by using these images in your Dockerfile and coping your
+          class files into the `/var/task` folder in your image. The runtime jar dependencies should
+          be copied into `/var/task/lib` directory.
+
+          ```
+              FROM public.ecr.aws/aleph0io/lambda/java:17
+
+              # Copy function code and runtime dependencies from Gradle layout
+              COPY build/classes/java/main ${LAMBDA_TASK_ROOT}
+              COPY build/dependency/* ${LAMBDA_TASK_ROOT}/lib/
+
+              # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
+              CMD [ "com.example.LambdaHandler::handleRequest" ]
+          ```
+              
+          Example Gradle task definition to prepare the runtime dependencies:
+
+          ```
+              task copyRuntimeDependencies(type: Copy) {
+                  from configurations.runtimeClasspath
+                  into 'build/dependency'
+              }
+              
+              build.dependsOn copyRuntimeDependencies
+          ```
+
+          If you are using Maven, adjust COPY command in the Dockerfile accordingly:
+
+          ```
+              FROM public.ecr.aws/aleph0io/lambda/java:17
+
+              # Copy function code and runtime dependencies from Maven layout
+              COPY target/classes ${LAMBDA_TASK_ROOT}
+              COPY target/dependency/* ${LAMBDA_TASK_ROOT}/lib/
+
+              # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
+              CMD [ "com.example.LambdaHandler::handleRequest" ]
+          ```
+
+          You can use maven-dependency-plugin to collect runtime dependencies:
+
+          ```
+              <build>
+                 <plugins>
+                   <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-dependency-plugin</artifactId>
+                     <version>3.1.2</version>
+                     <executions>
+                       <execution>
+                         <id>copy-dependencies</id>
+                         <phase>package</phase>
+                         <goals>
+                           <goal>copy-dependencies</goal>
+                         </goals>
+                         <configuration>
+                           <!-- Configuration goes here -->
+                         </configuration>
+                       </execution>
+                     </executions>
+                   </plugin>
+                 </plugins>
+              </build>
+          ```
+              
+          Use `mvn compile dependency:copy-dependencies -DincludeScope=runtime` to compile the
+          project and collect the runtime dependencies.
+
+          The resulting layout should look like:
+
+              /var/task/
+              ├── com
+              │   └── example
+              │       ├── LambdaHandler.class
+              │       └── <your other class files here>
+              └── lib
+                  ├── aws-lambda-java-core-1.2.1.jar
+                  ├── aws-lambda-java-events-3.7.0.jar
+                  └── <your other JAR dependencies here>
+
+          You can then locally test your function using the docker build and docker run commands.
+
+          To build your image:
+
+              docker build -t <image name> .
+              
+          To run your image locally:
+
+              docker run -p 9000:8080 <image name>
+
+          In a separate terminal, you can then locally invoke the function using cURL:
+
+              curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}'
+        RepositoryDescription: >
+          AWS Lambda Base Images for Java 17+
         OperatingSystems:
-          - al2
+          - Linux
         Architectures:
-          - x86_64
+          - x86-64
       Tags:
         - Key: aleph0
           Value: true

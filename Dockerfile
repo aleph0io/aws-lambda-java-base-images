@@ -15,8 +15,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
-# https://rieckpil.de/java-aws-lambda-container-image-support-complete-guide/
-
 ARG JAVA_VERSION=17
 ARG JAVA_REVISION=17.0.3
 
