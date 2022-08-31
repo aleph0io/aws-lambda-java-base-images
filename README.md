@@ -12,7 +12,7 @@ This project uses the following process to create new Lambda base images:
 
 ## Example Lambda Function
 
-You can find an example Lambda function using these base images at [aleph0io/aws-lambda-java-base-images](https://github.com/aleph0io/aws-lambda-java-base-images). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image.
+You can find an example Lambda function using these base images at [aleph0io/example-java-lambda-function](https://github.com/aleph0io/example-java-lambda-function). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image.
 
     FROM public.ecr.aws/aleph0io/java/lambda:17.0.4-al2
     
