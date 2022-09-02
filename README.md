@@ -37,3 +37,5 @@ You can find writeups of the [Java 17](https://sigpwned.com/2022/07/23/aws-lambd
 Many thanks to [@rieckpil](https://github.com/rieckpil) for [his outstanding writeup of custom Lambda runtimes](https://rieckpil.de/java-aws-lambda-container-image-support-complete-guide/). That tutorial was the foundation and basis for this build. Cheers!
 
 Also, thank you to [@msailes](https://github.com/msailes) for [the example Java 17 Lambda layer](https://github.com/msailes/lambda-java17-layer). This prior art was also critically important to understanding how best to integrate a new Java version into Lambda.
+
+Managed by [@sigpwned](https://github.com/sigpwned).
