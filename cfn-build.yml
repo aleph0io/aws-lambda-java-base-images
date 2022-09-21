@@ -24,16 +24,19 @@ Resources:
       RepositoryName: lambda/java
       RepositoryCatalogData:
         AboutText: |+
-          Unofficial base image for Lambda that contains all the required components to run your
-          functions packaged as container images on AWS Lambda. This base image contains the Amazon
-          Linux Base operating system, the runtime for Java, dependencies and the Lambda Runtime
-          Interface Client (RIC), which implements the
+          Unofficial community base image for Lambda that contains all the required components to
+          run your functions packaged as container images on AWS Lambda. This base image contains
+          the Amazon Linux Base operating system, the runtime for Java, dependencies and the Lambda
+          Runtime Interface Client (RIC), which implements the
           [Lambda Runtime API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html).
           The Lambda Runtime Interface Client allows your runtime to receive requests from and send
           requests to the Lambda service.
 
           To learn more about the composition of this base image you can visit
-          [https://github.com/aleph0io/aws-lambda-java-base-images](https://github.com/aleph0io/aws-lambda-java-base-images).
+          [aleph0io/aws-lambda-java-base-images](https://github.com/aleph0io/aws-lambda-java-base-images)
+          on GitHub.
+
+          Maintained by [@sigpwned](https://twitter.com/sigpwned). Drop me a line!
 
           ## Maintenance policy
 
@@ -41,8 +44,8 @@ Resources:
           and dependencies included in the image may change from time to time, but they will always
           work for deploying images to AWS Lambda.
         UsageText: |-
-          You can find an entire example AWS Lambda function implementation at 
-          [https://github.com/sigpwned/example-java-17-lambda-function](https://github.com/sigpwned/example-java-17-lambda-function).
+          You can find an entire example AWS Lambda function implementation on GitHub at 
+          [aleph0io/example-java-lambda-function](https://github.com/aleph0io/example-java-lambda-function).
           
           Otherwise, you can get started by using these images in your Dockerfile and coping your
           class files into the `/var/task` folder in your image. The runtime jar dependencies should
@@ -138,7 +141,7 @@ Resources:
 
               curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"payload":"hello world!"}'
         RepositoryDescription: >
-          AWS Lambda Base Images for Java 17+
+          Unofficial Community AWS Lambda Base Images for Java 17+
         OperatingSystems:
           - Linux
         Architectures:
