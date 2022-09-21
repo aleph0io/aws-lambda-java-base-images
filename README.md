@@ -28,8 +28,14 @@ You can find an example Lambda function using these base images at [aleph0io/exa
 * I suspect I will also clean up the ECR public gallery presence, but this gets the images out for now.
 * Of course, as soon as there *is* an offically-supported AWS Lambda base image for these Java versions, everyone should use that instead! But this project should hopefully fill the gap in the meantime, and will (hopefully) support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image by that time.
 
+## More Information
+
+You can find writeups of the [Java 17](https://sigpwned.com/2022/07/23/aws-lambda-base-images-for-java-17/) and [Java 18](https://sigpwned.com/2022/08/31/aws-lambda-base-images-for-java-18-too/) on [my blog](https://sigpwned.com/).
+
 ## Acknowledgements
 
 Many thanks to [@rieckpil](https://github.com/rieckpil) for [his outstanding writeup of custom Lambda runtimes](https://rieckpil.de/java-aws-lambda-container-image-support-complete-guide/). That tutorial was the foundation and basis for this build. Cheers!
 
 Also, thank you to [@msailes](https://github.com/msailes) for [the example Java 17 Lambda layer](https://github.com/msailes/lambda-java17-layer). This prior art was also critically important to understanding how best to integrate a new Java version into Lambda.
+
+Managed by [@sigpwned](https://github.com/sigpwned).
