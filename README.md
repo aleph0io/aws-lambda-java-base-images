@@ -20,6 +20,10 @@ You can find an example Lambda function using these base images at [aleph0io/exa
     
     CMD [ "com.sigpwned.lambda.hello.HelloLambda::handleRequest" ]
 
+## Testing Lambda Functions Locally
+
+The [Lambda RIE](https://github.com/aws/aws-lambda-runtime-interface-emulator) is not currently built into these lambda base images, so to test your lambda function implementations locally, you will need to [use the standalone RIE server](https://docs.aws.amazon.com/lambda/latest/dg/images-test.html#images-test-add).
+
 ## Known Issues and Future Plans
 
 * This image is in no way optimized for cold start time, size, etc. PRs welcome!
