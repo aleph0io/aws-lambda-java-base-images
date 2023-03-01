@@ -29,7 +29,8 @@ The [Lambda RIE](https://github.com/aws/aws-lambda-runtime-interface-emulator) i
 * This image is in no way optimized for cold start time, size, etc. PRs welcome!
 * Java 17, 18, and 19 are all supported.
 * For now, only x86_64 is supported. I hope to publish multiarch builds including arm64 soon.
-* Of course, as soon as there *is* an offically-supported AWS Lambda base image for these Java versions, everyone should use that instead! But this project should hopefully fill the gap in the meantime, and will (hopefully) support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image by that time.
+* Java 17 preview base images have been released to [lambda/java](https://gallery.ecr.aws/lambda/java). Java 17 users should strongly consider moving to the officially-supported base images, especially once they leave preview.
+* This project will continue to support non-LTS Java versions that will never receive an officially-supported AWS Lambda base image.
 
 ## More Information
 
