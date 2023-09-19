@@ -16,7 +16,7 @@
 # under the License.
 
 ARG JAVA_VERSION=20
-ARG JAVA_REVISION=20.0.0
+ARG JAVA_REVISION=20.0.2
 
 FROM public.ecr.aws/amazoncorretto/amazoncorretto:${JAVA_REVISION}-al2
 
