@@ -21,7 +21,7 @@ under the License.
 
     <groupId>com.sigpwned</groupId>
     <artifactId>aws-lambda-java-base-images</artifactId>
-    <version>20.0.0</version>
+    <version>21.0.0</version>
     <name>aws-lambda-java-base-images</name>
     <inceptionYear>2022</inceptionYear>
     <description>AWS Lambda Base Image for Java 17+</description>
@@ -59,7 +59,7 @@ under the License.
     </issueManagement>
 
     <properties>
-        <java.version>20</java.version>
+        <java.version>21</java.version>
         <java.revision>${project.version}</java.revision>
         <aws.registry>aleph0io</aws.registry>
         <os.platform>al2</os.platform>
@@ -128,7 +128,7 @@ under the License.
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-core</artifactId>
-            <version>1.2.2</version>
+            <version>1.2.3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -140,7 +140,7 @@ under the License.
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
-            <version>2.3.1</version>
+            <version>2.4.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -152,7 +152,7 @@ under the License.
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-events</artifactId>
-            <version>3.11.1</version>
+            <version>3.11.3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

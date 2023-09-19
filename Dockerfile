@@ -15,8 +15,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
-ARG JAVA_VERSION=20
-ARG JAVA_REVISION=20.0.0
+ARG JAVA_VERSION=21
+ARG JAVA_REVISION=21.0.0
 
 FROM public.ecr.aws/amazoncorretto/amazoncorretto:${JAVA_REVISION}-al2
 
