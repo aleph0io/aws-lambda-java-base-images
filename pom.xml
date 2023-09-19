@@ -21,7 +21,7 @@ under the License.
 
     <groupId>com.sigpwned</groupId>
     <artifactId>aws-lambda-java-base-images</artifactId>
-    <version>17.0.6</version>
+    <version>17.0.8</version>
     <name>aws-lambda-java-base-images</name>
     <inceptionYear>2022</inceptionYear>
     <description>AWS Lambda Base Image for Java 17+</description>
