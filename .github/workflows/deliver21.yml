@@ -1,7 +1,6 @@
 name: deliver21
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - release/21
