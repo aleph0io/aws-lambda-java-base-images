@@ -12,7 +12,7 @@ This project uses the following process to create new Lambda base images:
 
 ## Example Lambda Function
 
-You can find an example Lambda function using these base images at [aleph0io/example-java-lambda-function](https://github.com/aleph0io/example-java-lambda-function). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image. Java versions 18-21 are also supported.
+You can find an example Lambda function using these base images at [aleph0io/example-java-lambda-function](https://github.com/aleph0io/example-java-lambda-function). It's just like building any container lambda function. For ease of use, find the `Dockerfile` below. Note the `FROM` image. Java versions 17-20 are also supported.
 
     FROM public.ecr.aws/aleph0io/java/lambda:21-al2
     
